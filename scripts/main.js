@@ -93,7 +93,7 @@ form.onsubmit = async (e) => {
     const aiBubble = appendMessage('', true, false, true);
 
     try {
-        const res = await fetch('http://https://backend-mln2.onrender.com/ask', {
+        const res = await fetch('https://backend-mln2.onrender.com/ask', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ query: userMsg })
