@@ -1,28 +1,4 @@
-// main.js
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-
-            targetSection.style.display = 'block';
-        });
-    });
-
-    // Show the first section by default
-    if (sections.length > 0) {
-        sections[0].style.display = 'block';
-    }
-});
-
+// main.js - ✅ BẮT ĐẦU TỪ ĐÂY
 
 const el = document.getElementById("typing-title");
 const text = el.dataset.text;
@@ -35,9 +11,9 @@ function type() {
     if (index < text.length) {
         el.textContent += text.charAt(index);
         index++;
-        setTimeout(type, 20); // tốc độ gõ
+        setTimeout(type, 20);
     } else {
-        el.classList.remove("typing"); // dừng nhấp nháy khi xong
+        el.classList.remove("typing");
     }
 }
 
@@ -523,4 +499,20 @@ function showResult() {
     document.getElementById('quiz-result').innerText = `Bạn đã hoàn thành! Tổng điểm: ${score}/25`;
     document.getElementById('start-quiz-btn').style.display = 'block';
 }
+
+// Smooth scroll to section - giữ tất cả nội dung hiển thị
+document.querySelectorAll('#sidebar a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
 

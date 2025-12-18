@@ -23,6 +23,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000000;
+    /* ✅ Bỏ margin-left khỏi body */
 }
 
 header {
@@ -33,6 +34,7 @@ header {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    margin-left: 250px;
 }
 
 .header-bg {
@@ -215,6 +217,7 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+    margin-left: 250px;
 }
 #roles {
     position: relative;
@@ -773,6 +776,73 @@ footer {
   font-size: 1.25rem;
   text-align: center;
   line-height: 1.4;
+}
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #2a2a2a;
+    padding: 80px 20px 20px 20px;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    margin-bottom: 20px;
+}
+
+#sidebar ul li a {
+    color: #FFD700;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#sidebar ul li a:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+#sidebar ul li a.active {
+    background-color: rgba(255, 215, 0, 0.3);
+    border-left: 4px solid #FFD700;
+}
+
+/* Điều chỉnh body để tránh bị sidebar che */
+body {
+    margin: 0;
+}
+
+/* ✅ Chỉ set margin-left cho header, main, footer */
+header {
+    margin-left: 250px;
+}
+
+main {
+    margin-left: 250px;
+}
+
+footer {
+    margin-left: 250px;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Mobile */
